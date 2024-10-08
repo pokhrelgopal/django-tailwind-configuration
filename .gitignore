@@ -1,0 +1,10 @@
+.venv
+venv
+__pycache__/
+.env
+media/
+staticfiles/
+*.pyc
+*.pyo
+*.pyd
+*.log

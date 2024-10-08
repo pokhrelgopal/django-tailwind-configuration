@@ -1,0 +1,24 @@
+{% load static tailwind_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=jost:200,300,400,500,600,700,800,900" rel="stylesheet" />
+    <title>Document</title>
+    {% tailwind_css %}
+
+</head>
+
+<body style="font-family: 'Jost', sans-serif;">
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+
+</html>
