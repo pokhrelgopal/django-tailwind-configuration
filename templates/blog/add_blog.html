@@ -1,0 +1,63 @@
+{% extends 'base/base.html' %}
+
+
+{% block content %}
+<main class="container mx-auto my-12">
+    {%if not request.user.is_authenticated %}
+    <div role="alert" class="rounded border-s-4 border-red-500 bg-red-50 p-4">
+        <strong class="block font-medium text-red-800"> Login required </strong>
+
+        <p class="mt-2 text-sm text-red-700">
+            You need to login to add a blog post.
+        </p>
+    </div>
+    {% endif %}
+    <form action="" method="post" enctype="multipart/form-data" class="space-y-5">
+        {% csrf_token %}
+        <div>
+            <label for="Username"
+                class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+                <input required type="text" id="Username" name="title"
+                    class="peer border-none bg-transparent w-full p-4 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                    placeholder="Username" />
+
+                <span
+                    class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs text-gray-700 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs">
+                    Blog Title
+                </span>
+            </label>
+        </div>
+        <div>
+            <label for="content"
+                class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600">
+                <textarea required rows="5" id="content" name="content"
+                    class="peer w-full border-none bg-transparent p-4 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
+                    placeholder="Content"></textarea>
+
+                <span
+                    class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs text-gray-700 transition-all peer-placeholder-shown:top-5 peer-placeholder-shown:text-sm peer-focus:top-0 peer-focus:text-xs">
+                    Content
+                </span>
+            </label>
+        </div>
+        <div>
+            <div>
+                <label for="" class="mb-[10px] block text-base font-medium text-dark dark:text-white">
+                    Blog Thumbnail
+                </label>
+                <input required type="file" name="image"
+                    class="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke dark:border-dark-3 font-medium text-body-color dark:text-dark-6 outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke dark:file:border-dark-3 file:bg-[#F5F7FD] dark:file:bg-dark-2 file:py-3 file:px-5 file:text-body-color dark:file:text-dark-6 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-[#F5F7FD]" />
+            </div>
+        </div>
+        {% include 'common/messages.html' %}
+        <button class="group relative inline-block text-sm font-medium text-white focus:outline-none focus:ring"
+            type="submit">
+            <span class="absolute inset-0 border border-indigo-600 group-active:border-indigo-500"></span>
+            <span
+                class="block border border-indigo-600 bg-indigo-600 px-12 py-3 transition-transform active:border-indigo-500 active:bg-indigo-500 group-hover:-translate-x-1 group-hover:-translate-y-1">
+                Submit
+            </span>
+        </button>
+    </form>
+</main>
+{% endblock %}

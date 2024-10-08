@@ -10,14 +10,19 @@
     <link href="https://fonts.bunny.net/css?family=jost:200,300,400,500,600,700,800,900" rel="stylesheet" />
     <title>Document</title>
     {% tailwind_css %}
-
 </head>
 
-<body style="font-family: 'Jost', sans-serif;">
+<body style="font-family: 'Jost', sans-serif;" class="min-h-screen w-full flex flex-col">
 
-    {% block content %}
+    {% include 'common/header.html' %}
+    
+    <main class="flex-1">
+        {% block content %}
+        
+        {% endblock %}
+    </main>
 
-    {% endblock %}
+    {% include 'common/footer.html' %}
 
 </body>
 
